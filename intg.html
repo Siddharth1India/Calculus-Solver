@@ -1,0 +1,63 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <py-env>
+          - sympy
+      </py-env>
+    </head>
+
+  <body>
+    <br>
+    <h1>Integration Calculator</h1>
+    <code>Note: All equation should be in term of x and y</code><br><br>
+    <label for="input">Enter equation</label> <br>
+    <input type="text" id="eq-input"><br>
+    <label for="var">Enter variable</label><br>
+    <input type="text" id="var-input"><br>
+    <button id="submit-button" type="submit" pys-onClick="my_function">SOLVE!</button>
+    <br>
+    <br>
+    <label for="ans">Answer:</label>
+    <br>
+    <div id="pi"></div>
+    <py-script>
+from sympy import *
+from sympy.integrals.manualintegrate import integral_steps
+def my_function(equation):
+    <!-- equation = Element('eq-input').element.value
+    var = Element('var-input').element.value
+    x = symbols("x")
+    y = symbols("y") -->
+    <!-- equation = expand(equation) -->
+    x = symbols("x")
+    y = symbols("y")
+    equation = Element('eq-input').element.value
+    var = Element('var-input').element.value
+    pi = integrate(equation, symbols(var))
+    pyscript.write('pi', f'{pi}')
+
+</py-script>
+    <style>
+        body{
+            text-align: center;
+        }
+        input[type="text"]{
+            border: solid black 1px;
+            width: 50%;
+            height: 4%;
+            margin: 20px;
+            text-align: center;
+        }
+        button{
+            height: 30px;
+            width: 30%;
+            border: 1px solid black;
+        }
+        button:hover{
+            background-color: rgb(11, 154, 68);
+            cursor: pointer;
+        }
+    </style>
+  </body>
+</html>
