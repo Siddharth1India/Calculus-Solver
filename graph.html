@@ -1,12 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <py-env>
+          - sympy
+          - matplotlib
+      </py-env>
+    </head>
+
+  <body>
+    <br>
+    <h1>Graphs</h1>
+    <code>Note: All equation should be in term of x and y</code><br><br>
+    <label for="input">Enter equation</label> <br>
+    <input type="text" id="eq-input"><br>
+    <!-- <button id="submit-button" type="submit" pys-onClick="my_function">SOLVE!</button> -->
+    <br>
+    <br>
+    <label for="ans">Answer:</label>
+    <br>
+    <br>
+    <div id="plot"></div>
+
+    <py-script output="plot">
+        import matplotlib.pyplot as plt
+        import numpy as np
+        x = np.linspace(-2, 2, 100)
+        y = x**2
+        
+        fig = plt.figure(figsize=(10,5))
+        plt.plot(x,y)
+        fig
+
+</py-script>
+    <style>
+        body{
+            text-align: center;
+            background: #e0e0e0;
+        }
+        input[type="text"]{
+            border: solid black 1px;
+            width: 50%;
+            height: 4%;
+            margin: 20px;
+            text-align: center;
+        }
+        button{
+            height: 30px;
+            width: 30%;
+            border: 1px solid black;
+        }
+        button:hover{
+            background-color: rgb(11, 154, 68);
+            cursor: pointer;
+        }
+        #plot{
+            margin: 0 auto;
+            /* transform: translateX(25%); */
+            width: 50%;
+        }
+    </style>
+  </body>
 </html>
+
+<!-- <html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <py-env>
+        - numpy
+        - matplotlib
+      </py-env>
+    </head>
+
+  <body>
+    <h1>Let's plot random numbers</h1>
+    <div id="plot"></div>
+    <py-script output="plot">
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.randn(1000)
+y = np.random.randn(1000)
+
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
+    </py-script>
+  </body>
+</html> -->
